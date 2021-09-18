@@ -10,13 +10,16 @@ namespace CommandHandlerFreamwork
         public ExampleDialog(TestService testService) : base()
         {
             _testService = testService;
+
+            var totalDialogCanHandleCommand = Handlers.Count; // <-- такого мы не можем
+
         }
 
         public async Task HandleCommand(IDialogContext context, IActivityCommand command)
         {
             bool canHandle = Handlers.TryGetValue(command.CommandCode, out var handler);
 
-            if (!canHandle)
+            if (!canHandle)  // <-- такого мы тоже не можем, только путем перебора в огромных switch
                 return;
 
             await handler.ExecuteHandler(context, command);
