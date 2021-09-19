@@ -6,7 +6,7 @@
 
 // Не обязательный обработчик, запускаеться до того как будет запущен главный
 [BeforeCommandHandler(DialogCommandCode.Example1Command)]
-protected Task BeforeHandleExample1CommandHandler(IDialogContext context, IActivityCommand command)
+public Task BeforeHandleExample1CommandHandler(IDialogContext context, IActivityCommand command)
 {
     // First handle
     return Task.CompletedTask;
@@ -22,8 +22,10 @@ public Task Example1CommandHandler(IDialogContext context, IActivityCommand comm
 
 // Не обязательный обработчик, запускаеться после того как основной отработал
 [AfterCommandHandler(DialogCommandCode.Example1Command)]
-protected Task AfterHandleExample1CommandHandler(IDialogContext context, IActivityCommand command)
+public Task AfterHandleExample1CommandHandler(IDialogContext context, IActivityCommand command)
 {
     // Final handle
     return Task.CompletedTask;
-}```
+}
+
+```
