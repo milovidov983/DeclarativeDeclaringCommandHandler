@@ -14,6 +14,7 @@ public Task BeforeHandleExample1CommandHandler(IDialogContext context, IActivity
 
 // Главный и обязательный обработчик команды, в нём основная логика
 // По усти это заменитель того что мы сейчас делаем в методе HandleCommandAsync в switch (command?.Code) итд
+// в качестве case тут [CommandHandler(DialogCommandCode.Example1Command)]
 [CommandHandler(DialogCommandCode.Example1Command)]
 public Task Example1CommandHandler(IDialogContext context, IActivityCommand command)
 {
